@@ -30,7 +30,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name='post')
+        Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=800)
     email = models.EmailField(max_length=200)
     body = models.TextField()
@@ -42,5 +42,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
-
-
